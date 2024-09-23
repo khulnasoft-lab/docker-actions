@@ -1,4 +1,4 @@
-# GitHub Action for Docker Login
+# GitHub Action for Docker Tag
 
 The GitHub Action for Docker tagging uses the current environment to tag built images with a variety of GitHub identifiers:
 
@@ -14,14 +14,14 @@ The tag action requires at least two arguments: the image to be tagged, that mus
 ```
 action "tag" {
   uses = "actions/docker/tag@master"
-  command = "base github/base"
+  args = "base github/base"
 }
 ```
 
 This will look at the following:
 
 * `GITHUB_REF` environment variable, turning `heads/refs/master` -> `master`
-* `GITHUB_SHA` taking the first six characters
+* `GITHUB_SHA` taking the first seven characters
 * `version` `LABEL` from the Dockerfile
 
 It is possible to disable these tags by passing:
